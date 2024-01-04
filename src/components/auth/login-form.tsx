@@ -17,6 +17,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { ChangeEvent } from "react";
+import { FormError } from "../form-errors";
+import { FormSuccess } from "../form-success";
 
 export const LoginForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -81,6 +83,8 @@ export const LoginForm = () => {
               )}
             />
           </div>
+          <FormError message=""/>
+          <FormSuccess message=""/>
           <Button type="submit" className="w-full">
             Login
           </Button>
@@ -89,3 +93,4 @@ export const LoginForm = () => {
     </CardWrapper>
   );
 };
+
