@@ -1,7 +1,7 @@
 "use client";
 import { CardWrapper } from "./card-wrapper";
 import * as z from "zod";
-import { LoginSchema } from "../../../schema";
+import { LoginSchema } from "../../schema";
 import { Input } from "@/components/ui/input";
 import {
   Form,
@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { ChangeEvent } from "react";
 import { FormError } from "../form-errors";
 import { FormSuccess } from "../form-success";
+import { login } from "@/actions/login";
 
 export const LoginForm = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -31,7 +32,7 @@ export const LoginForm = () => {
   });
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
 
-    console.log(values);
+     login(values)
   };
   return (
     <CardWrapper
