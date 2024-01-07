@@ -2,9 +2,12 @@ import { auth, signOut } from "@/lib/auth";
 
 export default async function SettingPage() {
   const session = await auth();
+
   return (
     <div>
-      {JSON.stringify(session)}
+      <pre>
+        <code>{JSON.stringify(session, null, 2)}</code>
+      </pre>
 
       <form
         action={async () => {
